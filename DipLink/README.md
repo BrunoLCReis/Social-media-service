@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # DipLink
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
@@ -26,7 +25,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-=======
-# Social-media-service
-Project Front End - Social-Media
->>>>>>> e500a3eb8c667741e2a94cd454e3d3f0c370a0cc

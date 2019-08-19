@@ -1,0 +1,84 @@
+<!-- Sign Up -->
+<div *ngIf='this.signUpPage === true' class="signUpContainer">
+    <h1 style="margin-right: 500px; text-align: center">Welcome</h1>
+    <div class="justlogin">
+        <span class="login" (click)=loginPageUp()>Login</span>
+    </div>
+  <div class="middleContainer">
+    <span>Join Us</span>
+        <div class="first-name">
+            <span>first name</span>
+            <br>
+        <input [(ngModel)]="singing.first_name" id="input-first-name" type="text">
+    </div>
+      <br>
+        <div class="last-name">
+           <span>last name</span>
+            <br>
+        <input [(ngModel)]="singing.last_name" id="input-last-name" type="text">
+      </div> 
+      <br>
+            <div class="username">
+              <span>username</span>
+                <br>
+            <input [(ngModel)]="singing.username" id="input-username" type="text">
+      </div>
+      <br> 
+            <div class="password">
+              <span>password</span>
+                <br>
+            <input [(ngModel)]="singing.password" id="input-password" type="password">
+            </div>
+      <br>
+      <button (click)=signUp() class="signUp">Sing Up</button>
+  </div>
+</div>
+
+<!-- Login -->
+
+<div *ngIf='this.loginPage === true' class="loginContainer">
+  <h1>Login</h1>
+  <!-- <span>Hi {{ singing.first_name }}</span> -->
+  <div class="logIn">
+    <div class="userlog">
+      <b>
+  <span>Username</span>
+      </b>
+    </div>
+  <br>
+  <input id="logInusername" [(ngModel)]="runIn.username" id="logInusername" type="text">
+  <br>
+      <br>
+          <br>
+    <div class="passwordlog">
+      <b>
+    <span>Password</span>
+      </b>
+    </div>
+  <br>
+  <input [(ngModel)]="runIn.password" id="logInpassword" type="password">
+  </div>
+
+  <button (click)=login()  class="finalLogin">Login</button>
+</div>
+
+
+<!-- Feed Page -->
+
+<div style="margin-top: 2%" *ngIf='this.feedPage === true' class="feedContainer">
+<h1 style="margin-right: 500px; text-align: center">Feed</h1>
+    <span class="logout">
+        <h5 (click)=logout() style="margin-right: 100px; text-align: end">Logout</h5>
+    </span>
+  <div class="feedMiddleContainer">
+    <textarea class="postArea" [(ngModel)]="message" type="text"></textarea>
+    <div class="post">
+    <button (click)=publish() class="publish">PUBLISH</button>
+  </div>
+  <hr style="width: 60%">
+  </div>
+  <div class="getPosts">
+    <span (click)=getPostMessage() >Refresh Posts</span>
+      <textarea class="seePost" [(ngModel)]="timeLine" type="text" readonly></textarea>
+    </div>
+</div>
