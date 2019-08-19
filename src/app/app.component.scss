@@ -1,0 +1,219 @@
+.signUpContainer {
+    background-color: #608a94;
+    width: 100%;
+    padding: 0px 0px 3% 0px;
+    color: white;
+    transition-duration: 1,8s;
+    .justlogin {
+        span {
+                cursor: pointer;
+                margin-left: 80%;
+                    &:hover {
+                    color: black;
+            }
+        }
+    }
+    .middleContainer {
+    background-color: #0d0c0c;
+    width: 50%;
+    height: 200px;
+    margin-left: 300px;
+    margin-right: 100px;
+    padding: 110px 0px 200px 40px;
+    border-radius: 25px 25px;
+    font-family: monospace;
+    color: white;
+    font-size: x-large;
+    border-left: 3px solid whitesmoke;
+    border-right: 3px solid whitesmoke;
+        span {
+            position: absolute;
+            margin-top: -95px;
+        }
+        .first-name{
+            font-size: 15px;
+            font-style: italic;
+            span {
+                margin-top: 0%;
+                margin-left: 15%;
+            }
+        }
+        .last-name{
+            font-size: 15px;
+            font-style: italic;
+            span {
+                margin-top: 0%;
+                margin-left: 15%;
+            }
+            
+        }
+        #input-first-name {
+            margin-right: 15px;
+            border-radius: 15px;
+            margin-top: 10px;
+            margin-left: 30%;
+            height: 25px;
+            font-family: inherit;
+
+
+        }
+        #input-last-name {
+            margin-right: 15px;
+            border-radius: 15px;
+            margin-top: 10px;
+            margin-left: 30%;
+            height: 25px;
+            font-family: inherit;
+
+
+        }
+        #input-username {
+            margin-right: 15px;
+            border-radius: 15px;
+            margin-top: 10px;
+            margin-left: 30%;
+            height: 25px;
+            font-family: inherit;
+
+
+
+        }
+        #input-password {
+            margin-right: 15px;
+            border-radius: 15px;
+            margin-top: 10px;
+            margin-left: 30%;
+            height: 25px;
+            font-family: inherit;
+        }
+        .username {
+            font-size: 15px;
+            font-style: italic;
+            span {
+                margin-top: 0%;
+                margin-left: 15%;
+            }
+        }
+        .password {
+            font-size: 15px;
+            font-style: italic;
+            span {
+                margin-top: 0%;
+                margin-left: 15%;
+            }
+        }
+        .signUp {
+            cursor: pointer;
+            padding: 5px 20px 5px 20px;
+            border-radius: 15px 15px 15px 15px;
+            background-color: #165563ad;
+            margin-left: 80%;
+            margin-top: 3%;
+            color: white;
+        }
+    }
+    &.hidden {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.loginContainer {
+    transition-duration: 1,8s;
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.301);
+    text-align: center;
+    color: white;
+    .logIn {
+        text-align: center;
+        margin-top: 15%;
+        border-radius: 15px;
+        #logInusername {
+            border-radius: 15px;
+            height: 30px;
+            width: 20%;
+            margin-top: 15px;           
+
+        }
+        #logInpassword {
+            border-radius: 15px;
+            height: 30px;
+            width: 20%;
+            margin-top: 15px;
+        }
+    }
+    .finalLogin {
+        cursor: pointer;
+        padding: 5px 20px 5px 20px;
+        border-radius: 15px 15px 15px 15px;
+        background-color: #165563ad;
+        margin-top: 5%;
+        color: white;
+        font: caption;
+
+    }
+    &.hidden {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.feedContainer {
+    text-align: center;
+    margin-top: -46%;
+    width: 100%;
+    padding: 0px 0px 3% 0px;
+    color: white;
+    .logout {
+        cursor: pointer;
+        &:hover {
+            color: black;
+        }
+    }
+    .feedMiddleContainer {
+        text-align: center;
+        width: 100%;
+        .postArea {
+            border-radius: 15px;
+            margin-left: 1%;
+            width: 30%;
+            height: 50px;
+        }
+        .publish {
+            border-radius: 15px;
+            margin-left: -1%;
+            margin-top: 10px;
+            color: white;
+            background-color: blue;
+            font-weight: 800;
+            cursor: pointer;
+        }
+    }
+    .getPosts {
+        margin-top: 50px;
+        span {
+            cursor: pointer;
+            margin-right: 25px;
+            &:hover {
+                color: black;
+            }
+        }
+        .seePost {
+        width: 30%;
+        margin-top: 3%;
+        border: solid;
+        border-radius: 15px;
+        height: 100px;
+        margin-right: 7%;
+        }
+    }
+    &.hidden {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

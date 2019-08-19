@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://s0.2mdn.net/6813411/1564151526941/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title></title>
+  <script src="./tweenmax_2.1.2_min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script>
+    var clickTag = "http://www.google.com";
+  </script>
+<script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script></head>
+<body>
+  <div id="wrapper" onclick="window.open(window.clickTag); void(0);" data-guide="../../../_guides/FREQUENCIA_728X90.jpg" style="visibility: inherit; opacity: 1;">
+    <div id="bugIE" style="transform-style: preserve-3d; transform: matrix3d(1, 0.000174533, 0, 0, -0.000174533, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+      
+      <div id="step-1" style="visibility: hidden; opacity: 0;">
+        <div id="bg1" class="bg red"></div>
+        <img src="./txt1-1.png" id="txt1-1" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+        <img src="./txt1-2.png" id="txt1-2" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+        <img src="./txt1-3.png" id="txt1-3" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+        <img src="./txt1-4.png" id="txt1-4" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+      </div>
+      
+      <div id="step-2" style="visibility: hidden; opacity: 0;">
+          <img src="./arrow.png" id="arrow-1" class="arrow t1 arrow-left" alt="" style="visibility: hidden; opacity: 0; transform: matrix(1, 0, 0, 1, -100, 0);">
+          <img src="./arrow.png" id="arrow-2" class="arrow t1 arrow-right" alt="" style="visibility: hidden; opacity: 0; transform: matrix(-1, 0, 0, 1, 100, 0);">
+          <img src="./arrow.png" id="arrow-3" class="arrow t1 arrow-left" alt="" style="visibility: hidden; opacity: 0; transform: matrix(1, 0, 0, 1, -100, 0);">
+          <img src="./arrow.png" id="arrow-4" class="arrow t1 arrow-right" alt="" style="visibility: hidden; opacity: 0; transform: matrix(-1, 0, 0, 1, 100, 0);">
+          
+          <img src="./coca-empty.png" id="coca-empty" alt="" style="visibility: hidden; opacity: 0; transform: matrix(1, 0, 0, 1, 100, 0);">
+          <img src="./coca-full.png" id="coca-full" alt="" class="bugIE" style="visibility: inherit; opacity: 1; transform: matrix3d(1.5, 0.000261799, 0, 0, -0.000261799, 1.5, 0, 0, 0, 0, 1, 0, -320, 0, 0, 1); transform-style: preserve-3d;">
+      </div>
+
+      
+      <div id="step-3">
+        <img src="./foto.jpg" id="foto" alt="" class="bugIE" style="visibility: hidden; opacity: 0; transform: matrix3d(1, 0.000174533, 0, 0, -0.000174533, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-style: preserve-3d;">
+      </div>
+      
+      <div id="step-4">
+        <img src="./txt2-1.png" id="txt2-1" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+        <img src="./txt2-2.png" id="txt2-2" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+        <img src="./txt2-3.png" id="txt2-3" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+      </div>
+
+      <div id="step-5">
+        <div id="bg2" class="bg red" style="visibility: inherit; opacity: 1;"></div>
+        
+      </div>
+
+      <div id="step-6">
+        <img src="./logo.png" id="logo" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+        <img src="./cta.png" id="cta" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+
+        <img src="./setaEnd0.png" id="setaEnd0" class="coca-fanta" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+        <img src="./setaEnd1.png" id="setaEnd1" class="coca-fanta" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+
+        <img src="./fanta.png" id="fanta" class="coca-fanta" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+        <img src="./coca.png" id="coca" class="coca-fanta" alt="" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+  
+      </div>
+    </div>
+  </div>
+<script type="text/javascript" src="./script.js"></script>
+
+
+
+</body></html>
